@@ -2,7 +2,7 @@ name: GitHub Actions
 on: [workflow_dispatch]
 jobs:
   build-app-push-ecr:
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Configure AWS credentials
