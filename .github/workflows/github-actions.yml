@@ -20,9 +20,6 @@ jobs:
           REPOSITORY: test
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          ls -la
-          pwd
-          ls -la /
-          ls -la /workspace
+          ls -la /github/workspace
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG app/Dockerfile
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
