@@ -1,0 +1,13 @@
+ecr/.terraform/
+ecr/.terraform.lock.hcl
+
+modules/.terraform/
+modules/.terraform.lock.hcl
+
+modules/vpc/.terraform/
+modules/vpc/.terraform.lock.hcl
+
+modules/ecs/.terraform/
+modules/ecs/.terraform.lock.hcl
+
+terraform.tfstate

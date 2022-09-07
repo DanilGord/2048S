@@ -1,10 +1,11 @@
 name: GitHub Actions
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
+env:
+  REPOSITORY: image_2048S
 jobs:
   build-app-push-ecr:
     runs-on: ubuntu-latest
     steps:
-      # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -17,10 +18,19 @@ jobs:
       - name: Checkout repository content
         uses: actions/checkout@v2
       - name: Build, tag, and push docker image to Amazon ECR
+        id: build-image
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: test
+          REPOSITORY: $REPOSITORY
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./app
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+      - name: Terraform
+        id: terraform
+        working-directory: ./modules
+        run: |
+          terraform init
+          terraform plan -var app_image=${{ steps.build-image.outputs.image }} -var-file variable.tfvars
+          terraform apply -var app_image=${{ steps.build-image.outputs.image }} -var-file variable.tfvars -auto-approve

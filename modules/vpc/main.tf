@@ -1,0 +1,11 @@
+# provider "aws" {
+#   region = var.aws_region
+# }
+#
+# terraform {
+#   backend "s3" {
+#     bucket = "tf-state-20048s"
+#     key    = "terraform-states_vpc/terraform.tfstate"
+#     region = "eu-north-1"
+#   }
+# }
