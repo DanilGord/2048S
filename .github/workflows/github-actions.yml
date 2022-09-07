@@ -1,7 +1,5 @@
 name: GitHub Actions
 on: [push, workflow_dispatch]
-env:
-  REPOSITORY: image_2048S
 jobs:
   build-app-push-ecr:
     runs-on: ubuntu-latest
@@ -21,7 +19,7 @@ jobs:
         id: build-image
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: $REPOSITORY
+          REPOSITORY: image-2048s
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./app
