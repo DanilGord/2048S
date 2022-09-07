@@ -40,11 +40,11 @@ module "ecs" {
   task_memory        = var.task_memory
   environment        = var.environment
   app_name           = var.app_name
-  image_tag          = var.image_tag
-  app_port           = var.app_port
-  app_count          = var.app_count
-  health_check_path  = var.health_check_path
-  task_definition    = var.task_definition
-
-  depends_on = [module.vpc]
+  # image_tag          = var.image_tag
+  app_port          = var.app_port
+  app_count         = var.app_count
+  health_check_path = var.health_check_path
+  task_definition   = var.task_definition
+  app_image         = var.app_image
+  depends_on        = [module.vpc]
 }
