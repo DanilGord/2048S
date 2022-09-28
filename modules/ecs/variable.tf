@@ -18,11 +18,11 @@ variable "environment" {
   type    = string
 }
 
-variable "app_image" {
-  # default = "979378082445.dkr.ecr.eu-north-1.amazonaws.com"
-  #default = "image_2048S"
-  type = string
-}
+# variable "app_image" {
+#   # default = "979378082445.dkr.ecr.eu-north-1.amazonaws.com"
+#   #default = "image_2048S"
+#   type = string
+# }
 
 variable "task_cpu" {
   default = ""
@@ -37,14 +37,14 @@ variable "app_port" {
 }
 
 variable "health_check_path" {
-  default = ""
+  default = "/"
 }
 
-# variable "image_tag" {
-#   default = "07cca87bd2cc41873cb3d9dc7a5cd3e3ea07bf22"
-#   #default = "latest"
-#   type = string
-# }
+variable "image_tag" {
+  default = "faadfbdb59101303b57246cf776a6bed73fcec71"
+  #default = "latest"
+  type = string
+}
 
 variable "task_definition" {
   default = ""
@@ -58,11 +58,16 @@ variable "availability_count" {
   default = ""
 }
 
-variable "ecr_url" {
-  type = string
+variable "ecr_urll" {
+  default = "979378082445.dkr.ecr.eu-north-1.amazonaws.com/image-2048s"
+  type    = string
 }
 
 variable "vpc_id" {
+  type = string
+}
+
+variable "ecr_url" {
   type = string
 }
 
@@ -72,4 +77,8 @@ variable "private_subnets_id" {
 
 variable "public_subnets_id" {
   type = list(any)
+}
+
+locals {
+  app_image = format("%s:%s", var.ecr_urll, var.image_tag)
 }

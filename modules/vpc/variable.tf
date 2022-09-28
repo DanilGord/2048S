@@ -4,7 +4,7 @@ variable "aws_region" {
 }
 
 variable "subnet_count" {
-  default = ""
+  default = "2"
 }
 
 variable "app_name" {
@@ -12,11 +12,11 @@ variable "app_name" {
 }
 
 variable "app_count" {
-  default = ""
+  default = "1"
 }
 
 variable "availability_count" {
-  default = ""
+  default = "2"
 }
 
 variable "cidr" {
@@ -24,6 +24,12 @@ variable "cidr" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+# variable "environment" {
+#   default = ""
+#   type    = string
+# }
+
 # variable "common_tags" {
 #
 #   description = "Common Tags to apply to all resources"

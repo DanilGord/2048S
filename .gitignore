@@ -10,4 +10,7 @@ modules/vpc/.terraform.lock.hcl
 modules/ecs/.terraform/
 modules/ecs/.terraform.lock.hcl
 
+modules/ecr/.terraform/
+modules/ecr/.terraform.lock.hcl
+
 terraform.tfstate
