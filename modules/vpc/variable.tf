@@ -11,6 +11,10 @@ variable "app_name" {
   type = string
 }
 
+variable "aws_profile" {
+  type = string
+}
+
 variable "app_count" {
   default = "1"
 }
@@ -25,6 +29,7 @@ variable "cidr" {
   default     = "0.0.0.0/0"
 }
 
+variable "remote_state_bucket" {}
 # variable "environment" {
 #   default = ""
 #   type    = string

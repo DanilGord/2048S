@@ -1,11 +1,10 @@
+
+
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = var.aws_profile
 }
 
-# terraform {
-#   backend "s3" {
-#     bucket = "s3-ecr-test"
-#     key    = "terraform-states_ecr/terraform.tfstate"
-#     region = "eu-north-1"
-#   }
-# }
+terraform {
+  backend "s3" {}
+}

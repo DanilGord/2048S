@@ -14,3 +14,11 @@ modules/ecr/.terraform/
 modules/ecr/.terraform.lock.hcl
 
 terraform.tfstate
+
+provider/dev/ecr/.terragrunt-cache
+provider/dev/ecs/.terragrunt-cache
+provider/dev/vpc/.terragrunt-cache
+
+provider/prod/ecr/.terragrunt-cache
+provider/prod/ecs/.terragrunt-cache
+provider/prod/vpc/.terragrunt-cache

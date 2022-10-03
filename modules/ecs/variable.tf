@@ -54,6 +54,10 @@ variable "app_count" {
   default = ""
 }
 
+variable "aws_profile" {
+  type = string
+}
+
 variable "availability_count" {
   default = ""
 }
@@ -78,6 +82,8 @@ variable "private_subnets_id" {
 variable "public_subnets_id" {
   type = list(any)
 }
+
+variable "remote_state_bucket" {}
 
 locals {
   app_image = format("%s:%s", var.ecr_urll, var.image_tag)

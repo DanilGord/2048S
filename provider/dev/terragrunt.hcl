@@ -17,6 +17,7 @@ locals {
   task_definition   = "task_definition.json.tpl"
 }
 
+
 inputs = {
   remote_state_bucket = format("%s-%s-%s-%s", local.state_prefix, local.app_name, local.env, local.aws_region)
   env                 = local.env

@@ -3,6 +3,12 @@ variable "aws_region" {
   type    = string
 }
 
+variable "remote_state_bucket" {}
+
+variable "aws_profile" {
+  type = string
+}
+
 variable "app_name" {
   type = string
 }
