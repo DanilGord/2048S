@@ -1,21 +1,23 @@
 locals {
   state_prefix      = "terraform"
-  env               = "prod"
+  env               = "dev"
   app_name          = "image-2048s"
   aws_profile       = "default"
   aws_account       = "979378082445"
   aws_region        = "eu-north-1"
   cidr              = "10.0.0.0/16"
   image_tag         = "0.0.1"
-  repo_url          = "https://github.com/DanilGord/2048S"
-  branch_pattern    = "^refs/heads/develop$"
+  repo_url          = "https://github.com/DanilGord/2048S.git"
+  branch_pattern    = "^refs/heads/master$"
   git_trigger_event = "PUSH"
-  app_count         = 1
+
+  app_count         = 2
   task_cpu          = "512"
   task_memory       = "1024"
   app_port          = "3000"
   task_definition   = "task_definition.json.tpl"
 }
+
 
 inputs = {
   remote_state_bucket = format("%s-%s-%s-%s", local.state_prefix, local.app_name, local.env, local.aws_region)

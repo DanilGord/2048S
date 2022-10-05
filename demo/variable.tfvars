@@ -18,3 +18,8 @@
 # health_check_path = "/"
 # # ecr_url           = "979378082445.dkr.ecr.eu-north-1.amazonaws.com"
 # task_definition = "task_definition.json.tpl"
+
+
+
+#image_tag         = "faadfbdb59101303b57246cf776a6bed73fcec71"
+#ecr_url           = "979378082445.dkr.ecr.eu-north-1.amazonaws.com/image-2048s"

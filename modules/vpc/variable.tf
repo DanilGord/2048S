@@ -8,7 +8,13 @@ variable "subnet_count" {
 }
 
 variable "app_name" {
-  type = string
+  default = ""
+  type    = string
+}
+
+variable "env" {
+  default = ""
+  type    = string
 }
 
 variable "aws_profile" {

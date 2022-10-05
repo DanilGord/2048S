@@ -11,12 +11,10 @@ data "aws_iam_policy_document" "ecs_task_execution_role" {
   }
 }
 
-
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "${var.app_name}-ecs_task_execution_role"
+  name               = "${var.app_name}-${var.env}-ecs-task-execution-role"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
 }
-
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
   role       = aws_iam_role.ecs_task_execution_role.name

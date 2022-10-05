@@ -4,7 +4,6 @@ variable "aws_region" {
 }
 
 variable "subnet_count" {
-  #default = 2
   default = ""
 }
 
@@ -13,16 +12,15 @@ variable "app_name" {
   type    = string
 }
 
-variable "environment" {
+variable "env" {
   default = ""
   type    = string
 }
 
-# variable "app_image" {
-#   # default = "979378082445.dkr.ecr.eu-north-1.amazonaws.com"
-#   #default = "image_2048S"
-#   type = string
-# }
+variable "image_tag" {
+  default = ""
+  type    = string
+}
 
 variable "task_cpu" {
   default = ""
@@ -38,12 +36,6 @@ variable "app_port" {
 
 variable "health_check_path" {
   default = "/"
-}
-
-variable "image_tag" {
-  default = "faadfbdb59101303b57246cf776a6bed73fcec71"
-  #default = "latest"
-  type = string
 }
 
 variable "task_definition" {
@@ -62,16 +54,12 @@ variable "availability_count" {
   default = ""
 }
 
-variable "ecr_urll" {
-  default = "979378082445.dkr.ecr.eu-north-1.amazonaws.com/image-2048s"
+variable "ecr_url" {
+  default = ""
   type    = string
 }
 
 variable "vpc_id" {
-  type = string
-}
-
-variable "ecr_url" {
   type = string
 }
 
@@ -86,5 +74,5 @@ variable "public_subnets_id" {
 variable "remote_state_bucket" {}
 
 locals {
-  app_image = format("%s:%s", var.ecr_urll, var.image_tag)
+  app_image = format("%s:%s", var.ecr_url, var.image_tag)
 }

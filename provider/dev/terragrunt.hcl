@@ -6,10 +6,11 @@ locals {
   aws_account       = "979378082445"
   aws_region        = "eu-north-1"
   cidr              = "10.0.0.0/16"
-  image_tag         = "faadfbdb59101303b57246cf776a6bed73fcec71"
-  repo_url          = "https://github.com/DanilGord/2048S"
-  branch_pattern    = "^refs/heads/develop$"
+  image_tag         = "0.0.1"
+  repo_url          = "https://github.com/DanilGord/2048S.git"
+  branch_pattern    = "^refs/heads/dev$"
   git_trigger_event = "PUSH"
+
   app_count         = 1
   task_cpu          = "512"
   task_memory       = "1024"
