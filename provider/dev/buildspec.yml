@@ -33,10 +33,10 @@ phases:
       - echo "Building version ${TAG}"
       - make build
 
-      - cd ${CODEBUILD_SRC_DIR}
-      - terragrunt init --terragrunt-working-dir provider/dev/ecs/ -no-color -input=false -out plan.out
-      - terragrunt plan --terragrunt-working-dir provider/dev/ecs/ -var="image_tag=${TAG}" -no-color -input=false -out plan.out
-      - terragrunt apply --terragrunt-working-dir provider/dev/ecs/ -auto-approve -no-color -input=false plan.out
+      - cd ${CODEBUILD_SRC_DIR}/provider/dev/ecs/
+      - terragrunt init -no-color -input=false -out plan.out
+      - terragrunt plan -var="image_tag=${TAG}" -no-color -input=false -out plan.out
+      - terragrunt apply -auto-approve -no-color -input=false -out plan.out
 
   post_build:
     commands:
