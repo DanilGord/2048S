@@ -76,3 +76,14 @@ variable "remote_state_bucket" {}
 locals {
   app_image = format("%s:%s", var.ecr_url, var.image_tag)
 }
+
+
+variable "ecs_task_execution_role_name" {
+  description = "ECS task execution role name"
+  default     = "TaskExecutionRole"
+}
+
+variable "ecs_task_role_name" {
+  description = "ECS task role name"
+  default     = "TaskRole"
+}
