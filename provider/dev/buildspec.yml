@@ -34,9 +34,9 @@ phases:
       - make build
 
       - cd ${CODEBUILD_SRC_DIR}/provider/dev/ecs/
-      - terragrunt init -no-color -input=false -out plan.out
-      - terragrunt plan -var="image_tag=${TAG}" -no-color -input=false -out plan.out
-      - terragrunt apply -auto-approve -no-color -input=false -out plan.out
+      - terragrunt run-all init
+      - terragrunt run-all plan -var="image_tag=${TAG}"
+      - terragrunt run-all apply -var="image_tag=${TAG}" -auto-approve
 
   post_build:
     commands:
