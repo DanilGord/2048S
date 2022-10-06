@@ -5,7 +5,7 @@ env:
     CI: "true"
     REPOSITORY_REGION: "eu-north-1"
     ENV: "dev"
-    APP_NAME: "2048s"
+    APP_NAME: "image-2048s"
     TERRAFORM_VERSION: "0.14.7"
     TERRAGRUNT_VERSION: "0.28.7"
 
