@@ -60,11 +60,11 @@ generate "tfenv" {
   disable_signature = true
 
   contents = <<EOF
-0.14.7
+1.2.8
 EOF
 }
 
-terraform_version_constraint = "0.14.7"
+terraform_version_constraint = "1.2.8"
 
 terragrunt_version_constraint = ">= 0.26.7"
 
