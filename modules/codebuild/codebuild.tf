@@ -72,8 +72,9 @@ resource "aws_codebuild_project" "project" {
   }
 
   source {
+    buildspec           = var.build_spec_file
     type                = "GITHUB"
-    location            = "GitHub repository URL"
+    location            = var.repo_url
     git_clone_depth     = 1
     report_build_status = "true"
   }

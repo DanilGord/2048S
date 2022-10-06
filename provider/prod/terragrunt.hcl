@@ -7,7 +7,7 @@ locals {
   aws_region        = "eu-north-1"
   cidr              = "10.0.0.0/16"
   image_tag         = "0.0.1"
-  repo_url          = "https://github.com/DanilGord/2048S.git"
+  repo_url          = "https://github.com/DanilGord/2048S"
   branch_pattern    = "^refs/heads/master$"
   git_trigger_event = "PUSH"
 
@@ -60,11 +60,11 @@ generate "tfenv" {
   disable_signature = true
 
   contents = <<EOF
-0.14.7
+1.2.8
 EOF
 }
 
-terraform_version_constraint = "0.14.7"
+terraform_version_constraint = "1.2.8"
 
 terragrunt_version_constraint = ">= 0.26.7"
 

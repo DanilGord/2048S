@@ -10,8 +10,4 @@ resource "aws_cloudwatch_log_group" "log_group" {
 resource "aws_cloudwatch_log_stream" "log_stream" {
   name           = "${var.app_name}-${var.env}-log-stream"
   log_group_name = aws_cloudwatch_log_group.log_group.name
-
-  tags = {
-    Name = "log-stream"
-  }
 }

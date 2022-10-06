@@ -13,7 +13,8 @@ variable "aws_account" {
 variable "remote_state_bucket" {}
 
 variable "repo_url" {
-  description = "https://github.com/DanilGord/2048S.git"
+  description = "https://github.com/DanilGord/2048S"
+  type        = string
 }
 
 variable "github_token" {
@@ -45,6 +46,6 @@ variable "branch_pattern" {}
 variable "git_trigger_event" {}
 
 locals {
-  codebuild_project_name = "${var.app_name}-${var.environment}"
-  description            = "Codebuild for ${var.app_name} environment ${var.environment}"
+  codebuild_project_name = "${var.app_name}-${var.env}"
+  description            = "Codebuild for ${var.app_name} environment ${var.env}"
 }

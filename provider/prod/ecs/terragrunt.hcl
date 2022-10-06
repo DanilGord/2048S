@@ -16,19 +16,15 @@ dependency "ecr" {
 dependency "vpc" {
     config_path = "../vpc"
     mock_outputs = {
-      vpc_id             = "vpc-00000000000000000"
-      public_subnets_id  = "subnet-00000000000000000"
-      private_subnets_id = "subnet-11111111111111111"
+      vpc_id             = "vpc-000000000000"
+      private_subnets_id = ["subnet-00000000000", "subnet-11111111111"]
+      public_subnets_id  = ["subnet-22222222222", "subnet-33333333333"]
   }
 }
 
-
-inputs = merge(
-  local.secrets.inputs,
-  {
+inputs = {
     ecr_url            = dependency.ecr.outputs.ecr_url
     vpc_id             = dependency.vpc.outputs.vpc_id
-    public_subnets_id  = dependency.vpc.outputs.public_subnets_id
     private_subnets_id = dependency.vpc.outputs.private_subnets_id
+    public_subnets_id  = dependency.vpc.outputs.public_subnets_id
   }
-)

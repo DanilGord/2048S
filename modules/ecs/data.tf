@@ -1,5 +1,7 @@
+#data "templatefile" "app" {
 data "template_file" "app" {
-  template = file("${path.module}/${var.task_definition}")
+  #template = file("${path.module}/${var.task_definition}")
+  template = file(var.task_definition)
 
   vars = {
     app_image   = local.app_image

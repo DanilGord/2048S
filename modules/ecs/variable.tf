@@ -39,7 +39,7 @@ variable "health_check_path" {
 }
 
 variable "task_definition" {
-  default = ""
+  default = "task_definition.json.tpl"
 }
 
 variable "app_count" {

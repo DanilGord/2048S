@@ -18,7 +18,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "app_container_codebuild_role_policy" {
-  role = aws_iam_role.app_container_codebuild_role.AppContainerCodebuildRole
+  role = aws_iam_role.app_container_codebuild_role.name
 
   policy = <<POLICY
 {
@@ -54,12 +54,12 @@ resource "aws_iam_role_policy" "app_container_codebuild_role_policy" {
         "ec2:CreateNetworkInterfacePermission"
       ],
       "Resource": [
-        "arn:aws:ec2:${var.region}:${var.aws_account}:network-interface/*"
+        "arn:aws:ec2:${var.aws_region}:${var.aws_account}:network-interface/*"
       ],
       "Condition": {
         "StringEquals": {
           "ec2:Subnet": [
-            "arn:aws:ec2:${var.region}:${var.aws_account}:subnet/*"
+            "arn:aws:ec2:${var.aws_region}:${var.aws_account}:subnet/*"
           ],
           "ec2:AuthorizedService": "codebuild.amazonaws.com"
         }

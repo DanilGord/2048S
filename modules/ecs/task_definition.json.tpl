@@ -19,13 +19,12 @@
           "containerPort": ${app_port},
           "hostPort": ${app_port}
         }
-      ]
-      
+      ],
       "environment": [
-      {
-        "name": "VERSION",
-        "value": "${image_tag}"
-      }
-    ]
-    }
-  ]
+        {
+          "name": "VERSION",
+          "value": "${image_tag}"
+        }
+      ]
+   }
+]

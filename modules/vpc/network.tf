@@ -47,9 +47,6 @@ resource "aws_route" "internet_access" {
   route_table_id         = aws_vpc.vpc.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.igw.id
-  tags = {
-    Name = "${var.app_name}-${var.env}-aws-route"
-  }
 }
 
 resource "aws_nat_gateway" "nat-gw" {
@@ -78,7 +75,4 @@ resource "aws_route_table_association" "private" {
   count          = var.availability_count
   subnet_id      = element(aws_subnet.prod-subnet-private.*.id, count.index)
   route_table_id = element(aws_route_table.private.*.id, count.index)
-  tags = {
-    Name = "${var.app_name}-${var.env}-route-table-association-private"
-  }
 }

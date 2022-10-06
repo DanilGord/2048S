@@ -23,7 +23,7 @@ dependency "vpc" {
 }
 
 inputs = {
-    ecr_url            = "979378082445.dkr.ecr.eu-north-1.amazonaws.com/image-2048s"
+    ecr_url            = dependency.ecr.outputs.ecr_url
     vpc_id             = dependency.vpc.outputs.vpc_id
     private_subnets_id = dependency.vpc.outputs.private_subnets_id
     public_subnets_id  = dependency.vpc.outputs.public_subnets_id
