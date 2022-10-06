@@ -28,6 +28,6 @@ inputs = merge(
   {
     vpc_id = dependency.vpc.outputs.vpc_id
     private_subnets_id = dependency.vpc.outputs.private_subnets_id
-    build_spec_file = "providers/dev/buildspec.yml"
+    build_spec_file = "provider/dev/buildspec.yml"
   }
 )

@@ -2,7 +2,7 @@ function ScoreBoard( {score, highscore} ) {
     return (
         <div className="score">
             <div style={{'float':'left'}}>
-                <h3>Scoreeeee: {score}</h3>
+                <h3>Scoreeeeeeee: {score}</h3>
             </div>
             <div style={{'float':'right'}}>
             	<h3>Highscore: {highscore}</h3>
