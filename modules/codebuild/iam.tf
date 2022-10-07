@@ -96,6 +96,20 @@ resource "aws_iam_role_policy" "app_container_codebuild_role_policy" {
     {
       "Effect": "Allow",
       "Action": [
+        "iam:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "application-autoscaling:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
         "secretsmanager:*"
       ],
       "Resource": "arn:aws:secretsmanager:${var.aws_region}:${var.aws_account}:secret:*"
