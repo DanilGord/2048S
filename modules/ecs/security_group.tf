@@ -1,5 +1,5 @@
 resource "aws_security_group" "alb_sec" {
-  name   = "${var.app_name}-alb_sec"
+  name   = "${var.app_name}-${var.env}-alb-sec"
   vpc_id = var.vpc_id
 
   ingress {
@@ -22,7 +22,7 @@ resource "aws_security_group" "alb_sec" {
 }
 
 resource "aws_security_group" "ecs_sec_task" {
-  name   = "${var.app_name}-ecs_sec_task"
+  name   = "${var.app_name}-${var.env}-ecs-sec-task"
   vpc_id = var.vpc_id
 
   ingress {

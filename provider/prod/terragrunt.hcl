@@ -1,6 +1,6 @@
 locals {
   state_prefix      = "terraform"
-  env               = "prod"
+  env               = "dev"
   app_name          = "image-2048s"
   aws_profile       = "default"
   aws_account       = "979378082445"
@@ -8,14 +8,16 @@ locals {
   cidr              = "10.0.0.0/16"
   image_tag         = "0.0.1"
   repo_url          = "https://github.com/DanilGord/2048S"
-  branch_pattern    = "^refs/heads/develop$"
+  branch_pattern    = "^refs/heads/master$"
   git_trigger_event = "PUSH"
-  app_count         = 1
+
+  app_count         = 2
   task_cpu          = "512"
   task_memory       = "1024"
   app_port          = "3000"
   task_definition   = "task_definition.json.tpl"
 }
+
 
 inputs = {
   remote_state_bucket = format("%s-%s-%s-%s", local.state_prefix, local.app_name, local.env, local.aws_region)
@@ -58,11 +60,11 @@ generate "tfenv" {
   disable_signature = true
 
   contents = <<EOF
-0.14.7
+1.2.8
 EOF
 }
 
-terraform_version_constraint = "0.14.7"
+terraform_version_constraint = "1.2.8"
 
 terragrunt_version_constraint = ">= 0.26.7"
 

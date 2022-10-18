@@ -1,7 +1,7 @@
 TAG ?= latest
 REGISTRY_ID ?= 979378082445
 REPOSITORY_REGION ?= eu-north-1
-APP_NAME ?= 2048
+APP_NAME ?= image-2048s
 ENV_NAME ?= dev
 REPO_NAME = $(REGISTRY_ID).dkr.ecr.$(REPOSITORY_REGION).amazonaws.com/${APP_NAME}-${ENV_NAME}
 

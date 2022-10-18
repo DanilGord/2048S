@@ -1,14 +1,14 @@
 resource "aws_ecs_cluster" "ecs_main" {
-  name = "${var.app_name}-${var.environment}-ecs"
+  name = "${var.app_name}-${var.env}-ecs"
   tags = {
-    Name = "${var.app_name}-${var.environment}-ecs"
+    Name = "${var.app_name}-${var.env}-ecs"
   }
 }
 
 resource "aws_ecs_task_definition" "ecs_app" {
-  family                   = "${var.app_name}-${var.environment}-task"
+  family                   = "${var.app_name}-${var.env}-task"
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  task_role_arn            = aws_iam_role.ecs_task_execution_role.arn
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.task_cpu
@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "ecs_app" {
 }
 
 resource "aws_ecs_service" "main" {
-  name            = "${var.app_name}-${var.environment}-ecs-service"
+  name            = "${var.app_name}-${var.env}-ecs-service"
   cluster         = aws_ecs_cluster.ecs_main.id
   task_definition = aws_ecs_task_definition.ecs_app.arn
   desired_count   = var.app_count
@@ -31,7 +31,7 @@ resource "aws_ecs_service" "main" {
 
   load_balancer {
     target_group_arn = aws_alb_target_group.app.id
-    container_name   = "${var.app_name}-app"
+    container_name   = "${var.app_name}-${var.env}-app"
     container_port   = var.app_port
   }
 
